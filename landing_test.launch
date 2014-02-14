@@ -1,0 +1,16 @@
+<launch>   
+   
+  <node name="send_commands" pkg="send_commands" type="issue_commands.py">
+   <param name="target" value="/target"/> 
+   </node> 	
+	
+    <node name="pixel2xy" pkg="ardrone_apps" type="pixel2xy" output="screen">
+        <param name="calib_file" value="$(find ardrone_autonomy)/data/camera_info/ardrone_bottom.yaml" /> 
+        <param name="camera_name" value="bottom" />        <!-- /data/camera_info/ardrone_bottom.yaml -->
+        <param name="pix_topic" value="/pixel" />
+        <param name="cmd_topic" value="/target" />
+    </node>
+
+
+</launch>
+

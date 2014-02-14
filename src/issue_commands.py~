@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+import roslib
+
+import rospy
+from std_msgs.msg import String
+
+def issue_commands():
+    pub= rospy.Publisher('tum_ardrone/com',String)
+    rospy.init_node('send_commands')
+    for i in range(2):	    
+	#str="c clearCommands"
+    	#pub.publish(String(str))	
+    	#str="c autoInit 500 800 4000 0.5"
+    	str="c takeoff"
+	rospy.loginfo(str)
+    	pub.publish(String(str))
+    	rospy.sleep(1.0)
+    
+   
+
+  
+	   
+	   	
+	  
+
+if __name__ == '__main__':
+    try:
+        issue_commands()
+    except rospy.ROSInterruptException:
+        pass
+        
