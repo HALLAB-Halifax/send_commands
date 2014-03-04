@@ -19,7 +19,7 @@ def issue_commands(data):
     client.send_goal(goal)
     state=client.wait_for_result(rospy.Duration.from_sec(45.0))
     print state
-    rospy.set_param('check',state)
+    rospy.set_param('check',False)
     
    
 
@@ -32,6 +32,7 @@ if __name__ == '__main__':
     rospy.init_node('waypoints',anonymous=True)
     target=rospy.get_param("target","target")
     rospy.Subscriber(target,Point,issue_commands)
+    #issue_commands(2)
     rospy.spin()
     
     
