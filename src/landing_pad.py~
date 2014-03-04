@@ -3,7 +3,7 @@ import rospy
 from geometry_msgs.msg import Point
 
 def talker():
-    pub = rospy.Publisher('pix', Point)
+    pub = rospy.Publisher('landing_pad', Point)
     rospy.init_node('landing_pad', anonymous=True)
     r = rospy.Rate(10) # 10hz
     p=Point()
